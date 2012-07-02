@@ -1,0 +1,30 @@
+#draggable {
+    position: absolute;
+    left: 400px;
+    background-color: #ada;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    cursor: move;
+}
+
+#twod {
+    background-color: #aad;
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    cursor: move;
+}
+
+#handle {
+    position: relative;
+    z-index: 2;
+    margin-left: -7px;
+    margin-top: -7px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid black;
+    -mox-border-radius: 5px;
+    border-radius: 5px;
+}

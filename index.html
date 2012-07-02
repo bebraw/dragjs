@@ -11,7 +11,27 @@
   <script src="src/drag.js"></script>
   <script type="text/javascript">
   window.onload = function() {
-      // TODO
+      drag($E('draggable'));
+      drag($E('twod'), {
+          change: function(c) {
+              var x = clamp(c.x * 100, 0, 100) + '%';
+              var y = clamp(c.y * 100, 0, 100) + '%';
+              var h = $E('handle');
+
+              $E('value').innerHTML = 'x: ' + x + ', y: ' + y;
+              h.style.left = x;
+              h.style.top = y;
+          }
+      });
+      drag(); // gives warning
+  }
+
+  function $E(id) {
+      return document.getElementById(id);
+  }
+
+  function clamp(a, min, max) {
+      return Math.min(Math.max(a, min), max);
   }
   </script>
 
@@ -22,16 +42,10 @@
   <![endif]-->
 </head>
 <body>
-  <h2>Draggable Element</h2>
-  <div id="draggable"></div>
-
-  <h2>Horizontal Slider</h2>
-  <div id="horizontalSlider"></div>
-
-  <h2>Vertical Slider</h2>
-  <div id="verticalSlider"></div>
-
-  <h2>2D Slider</h2>
-  <div id="2dSlider"></div>
+  <div id="draggable">Drag me!</div>
+  <div id="twod">
+      <div id="handle"></div>
+  </div>
+  <div id="value"></div>
 </body>
 </html>
