@@ -10,6 +10,7 @@
 }
 
 #twod {
+    position: fixed;
     background-color: #aad;
     border: 1px solid black;
     width: 200px;
@@ -27,4 +28,9 @@
     border: 2px solid black;
     -mox-border-radius: 5px;
     border-radius: 5px;
+}
+
+#value {
+    height: 2000px;
+    margin-left: 250px;
 }
