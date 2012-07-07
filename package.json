@@ -1,0 +1,24 @@
+{
+    "name": "drag.js",
+    "description": "Simple utility to make it easier to implement drag based things(ie. sliders and such)",
+    "author": "Juho Vepsalainen <bebraw@gmail.com>",
+    "version": "0.2.5",
+
+    "repository": {
+        "type": "git",
+        "url": "https://bebraw@github.com/bebraw/drag.js.git"
+    },
+
+    "homepage": "https://bebraw.github.com/drag.js",
+
+    "bugs": {
+        "url": "https://github.com/bebraw/drag.js/issues"
+    },
+
+    "keywords": ["drag", "requirejs", "amd"],
+
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://github.com/bebraw/drag.js/blob/master/LICENSE"
+    }]
+}
