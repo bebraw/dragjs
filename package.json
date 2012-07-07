@@ -1,6 +1,6 @@
 {
     "name": "drag.js",
-    "description": "Simple utility to make it easier to implement drag based things(ie. sliders and such)",
+    "description": "Simple utility to make it easier to implement drag based things (ie. sliders and such)",
     "author": "Juho Vepsalainen <bebraw@gmail.com>",
     "version": "0.2.5",
 
