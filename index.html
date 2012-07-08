@@ -12,15 +12,30 @@
   <script type="text/javascript">
   window.onload = function() {
       drag($E('draggable'));
-      drag($E('twod'), {
-          change: function(c) {
-              var x = clamp(c.x * 100, 0, 100) + '%';
-              var y = clamp(c.y * 100, 0, 100) + '%';
-              var h = $E('handle');
+      drag.xyslider({
+          parent: $E('twodContainer'),
+          'class': 'twod',
+          cbs: {
+              change: function(c) {
+                  var x = clamp(c.x * 100, 0, 100) + '%';
+                  var y = clamp(c.y * 100, 0, 100) + '%';
 
-              $E('value').innerHTML = 'x: ' + x + ', y: ' + y;
-              h.style.left = x;
-              h.style.top = y;
+                  $E('value').innerHTML = 'x: ' + x + ', y: ' + y;
+
+                  c.pointer.style.left = x;
+                  c.pointer.style.top = y;
+              }
+          }
+      });
+      drag.slider({
+          parent: $E('onedContainer'),
+          'class': 'oned',
+          cbs: {
+              change: function(c) {
+                  var x = clamp(c.x * 100, 0, 100) + '%';
+
+                  c.pointer.style.left = x;
+              }
           }
       });
       drag(); // gives warning
@@ -43,9 +58,8 @@
 </head>
 <body>
   <div id="draggable">Drag me!</div>
-  <div id="twod">
-      <div id="handle"></div>
-  </div>
+  <div id="twodContainer"></div>
+  <div id="onedContainer"></div>
   <div id="value"></div>
 </body>
 </html>

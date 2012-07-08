@@ -19,7 +19,69 @@ function drag(elem, cbs) {
     if(isTouch()) dragTemplate(elem, cbs, 'touchstart', 'touchmove', 'touchend');
     else dragTemplate(elem, cbs, 'mousedown', 'mousemove', 'mouseup');
 }
+
+function xyslider(o) {
+    var twod = div(o['class'] || '', o.parent);
+    var pointer = div('pointer', twod);
+    div('shape shape1', pointer);
+    div('shape shape2', pointer);
+    div('bg bg1', twod);
+    div('bg bg2', twod);
+
+    drag(twod, attachPointer(o.cbs, pointer));
+
+    return {
+        background: twod,
+        pointer: pointer
+    };
+}
+
+function slider(o) {
+    var oned = div(o['class'], o.parent);
+    var pointer = div('pointer', oned);
+    div('shape', pointer);
+    div('bg', oned);
+
+    drag(oned, attachPointer(o.cbs, pointer));
+
+    return {
+        background: oned,
+        pointer: pointer
+    };
+}
+
+drag.xyslider = xyslider;
+drag.slider = slider;
+
 return drag;
+
+function attachPointer(cbs, pointer) {
+    var ret = {};
+
+    for(var n in cbs) ret[n] = wrap(cbs[n]);
+
+    function wrap(fn) {
+        return function(p) {
+            p.pointer = pointer;
+            fn(p);
+        };
+    }
+
+    return ret;
+}
+
+// move to elemutils lib?
+function div(klass, p) {
+    return e('div', klass, p);
+}
+
+function e(type, klass, p) {
+    var elem = document.createElement(type);
+    if(klass) elem.className = klass;
+    p.appendChild(elem);
+
+    return elem;
+}
 
 // http://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript
 function isTouch() {

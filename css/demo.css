@@ -9,7 +9,7 @@
     cursor: move;
 }
 
-#twod {
+.twod {
     position: fixed;
     background-color: #aad;
     border: 1px solid black;
@@ -18,7 +18,7 @@
     cursor: move;
 }
 
-#handle {
+.twod .pointer {
     position: relative;
     z-index: 2;
     margin-left: -7px;
@@ -28,6 +28,24 @@
     border: 2px solid black;
     -mox-border-radius: 5px;
     border-radius: 5px;
+}
+
+.oned {
+    float: right;
+    background-color: #daa;
+    border: 1px solid black;
+    width: 300px;
+    height: 30px;
+    cursor: move;
+}
+
+.oned .pointer {
+    position: relative;
+    background-color: black;
+    z-index: 2;
+    margin-left: -2px;
+    width: 4px;
+    height: 30px;
 }
 
 #value {
