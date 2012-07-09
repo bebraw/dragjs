@@ -17,8 +17,8 @@
           'class': 'twod',
           cbs: {
               change: function(c) {
-                  var x = clamp(c.x * 100, 0, 100) + '%';
-                  var y = clamp(c.y * 100, 0, 100) + '%';
+                  var x = clamp(c.x * 100, 0, 100).toFixed(2) + '%';
+                  var y = clamp(c.y * 100, 0, 100).toFixed(2) + '%';
 
                   $E('value').innerHTML = 'x: ' + x + ', y: ' + y;
 
