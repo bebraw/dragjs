@@ -215,7 +215,9 @@ function findPos(e) {
 // http://javascript.about.com/library/blmousepos.htm
 function cursorX(elem, evt) {
     if(isFixed(elem)) {
-        var bodyLeft = parseInt(document.defaultView.getComputedStyle(document.body, "").marginLeft, 10) - calc(elem, 'scrollLeft') + window.pageXOffset + elem.style.marginLeft;
+        var bodyLeft = parseInt(getStyle(document.body, 'marginLeft'), 10) -
+            calc(elem, 'scrollLeft') + window.pageXOffset +
+            elem.style.marginLeft;
 
         return evt.clientX - bodyLeft;
     }
@@ -225,7 +227,9 @@ function cursorX(elem, evt) {
 }
 function cursorY(elem, evt) {
     if(isFixed(elem)) {
-        var bodyTop = parseInt(document.defaultView.getComputedStyle(document.body, "").marginTop, 10) - calc(elem, 'scrollTop') + window.pageYOffset + elem.style.marginTop;
+        var bodyTop = parseInt(getStyle(document.body, 'marginTop'), 10) -
+            calc(elem, 'scrollTop') + window.pageYOffset +
+            elem.style.marginTop;
 
         return evt.clientY - bodyTop;
     }
@@ -254,6 +258,18 @@ function isFixed(element) {
         element = element.parentNode;
         if(element.nodeName == "HTML") return false;
         else return true;
+}
+
+// http://www.javascriptkit.com/dhtmltutors/dhtmlcascade4.shtml
+function getStyle(el, cssprop){
+    if (el.currentStyle) // IE
+        return el.currentStyle[cssprop];
+
+    if(document.defaultView && document.defaultView.getComputedStyle)
+        return document.defaultView.getComputedStyle(el, "")[cssprop];
+
+    //try and get inline style
+    return el.style[cssprop];
 }
 
 // Used style is to get around browsers' different methods of getting
