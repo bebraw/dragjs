@@ -35,6 +35,9 @@
                   var x = clamp(c.x * 100, 0, 100) + '%';
 
                   c.pointer.style.left = x;
+              },
+              end: function(c) {
+                  console.log('2dslider: done', c);
               }
           }
       });

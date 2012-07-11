@@ -119,11 +119,6 @@ function dragTemplate(elem, cbs, down, move, up) {
 
         callCb(beginCb, elem, e);
     });
-    on(elem, up, function(e) {
-        dragging = false;
-
-        callCb(endCb, elem, e);
-    });
 }
 
 function on(elem, evt, handler) {
