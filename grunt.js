@@ -5,7 +5,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     meta: {
       version: '0.3.5',
-      banner: '/*! colorjoe - v<%= meta.version %> - ' +
+      banner: '/*! drag.js - v<%= meta.version %> - ' +
         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
         '* http://bebraw.github.com/drag.js/\n' +
         '* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
