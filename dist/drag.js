@@ -1,4 +1,4 @@
-/*! colorjoe - v0.6.1 - 2012-07-11
+/*! colorjoe - v0.3.5 - 2012-07-11
 * http://bebraw.github.com/drag.js/
 * Copyright (c) 2012 Juho Vepsalainen; Licensed MIT */
 
