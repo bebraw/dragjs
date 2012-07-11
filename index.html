@@ -20,7 +20,7 @@
                   var x = clamp(c.x * 100, 0, 100).toFixed(2) + '%';
                   var y = clamp(c.y * 100, 0, 100).toFixed(2) + '%';
 
-                  $E('value').innerHTML = 'x: ' + x + ', y: ' + y;
+                  log('x: ' + x + ', y: ' + y);
 
                   c.pointer.style.left = x;
                   c.pointer.style.top = y;
@@ -32,16 +32,22 @@
           'class': 'oned',
           cbs: {
               change: function(c) {
-                  var x = clamp(c.x * 100, 0, 100) + '%';
+                  var x = clamp(c.x * 100, 0, 100).toFixed(2) + '%';
+
+                  log('2dslider: ' + x);
 
                   c.pointer.style.left = x;
               },
               end: function(c) {
-                  console.log('2dslider: done', c);
+                  log('2dslider: done');
               }
           }
       });
       drag(); // gives warning
+  }
+
+  function log(msg) {
+      $E('value').innerHTML = msg;
   }
 
   function $E(id) {
