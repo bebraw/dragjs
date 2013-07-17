@@ -1,19 +1,5 @@
-/*! drag.js - v0.3.8 - 2012-07-11
-* http://bebraw.github.com/drag.js/
-* Copyright (c) 2012 Juho Vepsalainen; Licensed MIT */
-
-/*
- * References:
- * * http://luke.breuer.com/tutorial/javascript-drag-and-drop-tutorial.aspx
- * * http://stackoverflow.com/questions/1291325/drag-drop-problem-draggable-in-positionrelative-parent
- *
- * Note that default drag does not work with position: relative by default!
- * */
-(function(root, factory) {
-    if(typeof define === 'function' && define.amd) define(factory);
-    else root.drag = factory();
-}(this, function() {
-
+/*! dragjs - v0.3.8 - Juho Vepsalainen <bebraw@gmail.com> - MIT
+https://bebraw.github.com/dragjs - 2013-07-17 */
 function drag(elem, cbs) {
     if(!elem) {
         console.warn('drag is missing elem!');
@@ -56,8 +42,6 @@ function slider(o) {
 
 drag.xyslider = xyslider;
 drag.slider = slider;
-
-return drag;
 
 function attachPointer(cbs, pointer) {
     var ret = {};
@@ -289,4 +273,3 @@ function usedStyle(element, property) {
 
     return s[property];
 }
-}));

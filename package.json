@@ -1,24 +1,34 @@
 {
-    "name": "drag.js",
+    "name": "dragjs",
     "description": "Simple utility to make it easier to implement drag based things (ie. sliders and such)",
     "author": "Juho Vepsalainen <bebraw@gmail.com>",
     "version": "0.3.8",
 
-    "repository": {
-        "type": "git",
-        "url": "https://bebraw@github.com/bebraw/drag.js.git"
+    "devDependencies": {
+      "grunt": "0.4.1",
+      "grunt-contrib-watch": "0.4.4",
+      "grunt-contrib-concat": "0.3.0",
+      "grunt-contrib-uglify": "0.2.2",
+      "grunt-umd": "1.0.0"
     },
 
-    "homepage": "https://bebraw.github.com/drag.js",
+    "repository": {
+        "type": "git",
+        "url": "https://bebraw@github.com/bebraw/dragjs.git"
+    },
+
+    "homepage": "https://bebraw.github.com/dragjs",
 
     "bugs": {
-        "url": "https://github.com/bebraw/drag.js/issues"
+        "url": "https://github.com/bebraw/dragjs/issues"
     },
 
     "keywords": ["drag", "requirejs", "amd"],
 
+    "main": "dist/dragjs.js",
+    "license": "MIT",
     "licenses": [{
         "type": "MIT",
-        "url": "https://github.com/bebraw/drag.js/blob/master/LICENSE"
+        "url": "https://github.com/bebraw/dragjs/blob/master/LICENSE"
     }]
 }
