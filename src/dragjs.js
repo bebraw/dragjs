@@ -5,14 +5,16 @@
  *
  * Note that default drag does not work with position: relative by default!
  * */
-function drag(elem, cbs) {
-    if(!elem) {
-        console.warn('drag is missing elem!');
-        return;
-    }
+var drag = (function() {
+    function drag(elem, cbs) {
+        if(!elem) {
+            console.warn('drag is missing elem!');
+            return;
+        }
 
-    if(isTouch()) dragTemplate(elem, cbs, 'touchstart', 'touchmove', 'touchend');
-    else dragTemplate(elem, cbs, 'mousedown', 'mousemove', 'mouseup');
+        if(isTouch()) dragTemplate(elem, cbs, 'touchstart', 'touchmove', 'touchend');
+        else dragTemplate(elem, cbs, 'mousedown', 'mousemove', 'mouseup');
+    }
 
     function xyslider(o) {
         var twod = div(o['class'] || '', o.parent);
@@ -46,6 +48,8 @@ function drag(elem, cbs) {
 
     drag.xyslider = xyslider;
     drag.slider = slider;
+
+    return drag;
 
     function attachPointer(cbs, pointer) {
         var ret = {};
@@ -277,4 +281,4 @@ function drag(elem, cbs) {
 
         return s[property];
     }
-}
+})();
