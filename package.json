@@ -23,7 +23,7 @@
     "requirejs",
     "amd"
   ],
-  "main": "dist/dragjs.js",
+  "main": "dist/dragjs.umd.js",
   "license": "MIT",
   "licenses": [
     {
