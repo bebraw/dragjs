@@ -12,8 +12,8 @@ var drag = (function() {
             return;
         }
 
-        if(isTouch()) dragTemplate(elem, cbs, 'touchstart', 'touchmove', 'touchend');
-        else dragTemplate(elem, cbs, 'mousedown', 'mousemove', 'mouseup');
+        dragTemplate(elem, cbs, 'touchstart', 'touchmove', 'touchend');
+        dragTemplate(elem, cbs, 'mousedown', 'mousemove', 'mouseup');
     }
 
     function xyslider(o) {
