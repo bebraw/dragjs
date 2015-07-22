@@ -2,7 +2,7 @@
   "name": "dragjs",
   "description": "Simple utility to make it easier to implement drag based things (ie. sliders and such)",
   "author": "Juho Vepsalainen <bebraw@gmail.com>",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "devDependencies": {
     "grunt": "0.4.1",
     "grunt-contrib-watch": "0.4.4",
@@ -30,5 +30,6 @@
       "type": "MIT",
       "url": "https://github.com/bebraw/dragjs/blob/master/LICENSE"
     }
-  ]
+  ],
+  "scripts": {}
 }
