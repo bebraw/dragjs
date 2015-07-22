@@ -1,7 +1,6 @@
 # dragjs
 
-dragjs makes it easy to write deal with dragging in JS. Handy for draggables,
-sliders and such.
+dragjs makes it easy to write deal with dragging in JS. Handy for draggables, sliders and such.
 
 ## Contributors
 
