@@ -12,7 +12,7 @@
 
     }(this, function () {
 
-        /*! dragjs - v0.6.0 - Juho Vepsalainen <bebraw@gmail.com> - MIT
+        /*! dragjs - v0.7.0 - Juho Vepsalainen <bebraw@gmail.com> - MIT
 https://bebraw.github.com/dragjs - 2016-08-12 */
 var drag = (function() {
     function drag(elem, cbs) {
