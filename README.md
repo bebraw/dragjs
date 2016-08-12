@@ -5,6 +5,7 @@ dragjs makes it easy to write deal with dragging in JS. Handy for draggables, sl
 ## Contributors
 
 * [Jean Carrière](https://github.com/JeanCarriere)
+* [Sam Potts](https://github.com/SamPotts) - Use getBoundingClientRect(), IE9+ support
 
 ## License
 
