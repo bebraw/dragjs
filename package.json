@@ -31,5 +31,9 @@
       "url": "https://github.com/bebraw/dragjs/blob/master/LICENSE"
     }
   ],
-  "scripts": {}
+  "scripts": {
+    "postversion": "npm run build && git commit --allow-empty -am \"Update dist\"",
+    "build": "grunt refresh",
+    "start": "grunt"
+  }
 }
