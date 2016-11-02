@@ -1,0 +1,24 @@
+{
+  "name": "dragjs",
+  "description": "Simple utility to make it easier to implement drag based things (ie. sliders and such)",
+  "main": "dist/dragjs.umd.js",
+  "authors": [
+    "Juho Vepsalainen <bebraw@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "drag",
+    "requirejs",
+    "amd"
+  ],
+  "homepage": "https://bebraw.github.com/dragjs",
+  "ignore": [
+    "src",
+    "css",
+    "package.json",      
+    ".gitignore",
+    "Gruntfile.js",
+    "index.html",      
+    "README.md"
+  ]
+}
