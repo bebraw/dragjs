@@ -105,8 +105,21 @@ var drag = (function() {
         });
     }
 
+    // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
     function on(elem, evt, handler) {
-        elem.addEventListener(evt, handler, false);
+        // Test via a getter in the options object to see if the passive property is accessed
+        var supportsPassive = false;
+        try {
+        var opts = Object.defineProperty({}, 'passive', {
+            get: function() {
+            supportsPassive = true;
+            }
+        });
+        window.addEventListener("testPassive", null, opts);
+        window.removeEventListener("testPassive", null, opts);
+        } catch (e) {}
+
+        elem.addEventListener(evt, handler, supportsPassive ? { passive: false } : false);
     }
 
     function off(elem, evt, handler) {

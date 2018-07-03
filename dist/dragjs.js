@@ -1,5 +1,5 @@
 /*! dragjs - v0.7.0 - Juho Vepsalainen <bebraw@gmail.com> - MIT
-https://bebraw.github.com/dragjs - 2016-08-12 */
+https://bebraw.github.com/dragjs - 2018-07-03 */
 var drag = (function() {
     function drag(elem, cbs) {
         if(!elem) {
@@ -107,8 +107,21 @@ var drag = (function() {
         });
     }
 
+    // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
     function on(elem, evt, handler) {
-        elem.addEventListener(evt, handler, false);
+        // Test via a getter in the options object to see if the passive property is accessed
+        var supportsPassive = false;
+        try {
+        var opts = Object.defineProperty({}, 'passive', {
+            get: function() {
+            supportsPassive = true;
+            }
+        });
+        window.addEventListener("testPassive", null, opts);
+        window.removeEventListener("testPassive", null, opts);
+        } catch (e) {}
+
+        elem.addEventListener(evt, handler, supportsPassive ? { passive: false } : false);
     }
 
     function off(elem, evt, handler) {
