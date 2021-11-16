@@ -38,7 +38,7 @@ onedContainer && slider({
     change: ({ x, pointer }) => {
       const newX = clamp(x * 100, 0, 100).toFixed(2) + "%";
 
-      log("2dslider: " + newX);
+      console.log("2dslider: " + newX);
 
       if (pointer) {
         pointer.style.left = newX;
@@ -68,7 +68,7 @@ twodContainer && xyslider({
       const newX = clamp(x * 100, 0, 100).toFixed(2) + "%";
       const newY = clamp(y * 100, 0, 100).toFixed(2) + "%";
 
-      log("x: " + newX + ", y: " + newY);
+      console.log("x: " + newX + ", y: " + newY);
 
       if (pointer) {
         pointer.style.left = newX;
