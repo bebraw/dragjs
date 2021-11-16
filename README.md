@@ -92,4 +92,4 @@ To build, run `vr build <version?>`. Then to publish, `cd npm && npm publish`.
 
 ## License
 
-dragjs is available under MIT. See LICENSE for more details.
+**dragjs** is available under MIT. See LICENSE for more details.
