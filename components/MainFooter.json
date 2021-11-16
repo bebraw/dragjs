@@ -31,25 +31,6 @@
               "children": [
                 {
                   "element": "h2",
-                  "children": "Navigation"
-                },
-                {
-                  "element": "div",
-                  "class": "flex flex-col gap-2 font-thin",
-                  "children": [
-                    {
-                      "element": "Navigation"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "element": "div",
-              "class": "flex flex-col",
-              "children": [
-                {
-                  "element": "h2",
                   "children": "Credits"
                 },
                 {
