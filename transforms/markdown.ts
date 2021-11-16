@@ -1,12 +1,9 @@
 import { marked } from "https://unpkg.com/marked@4.0.0/lib/marked.esm.js";
 import { tw } from "https://cdn.skypack.dev/twind@0.16.16?min";
-import HighlightJS from "https://unpkg.com/@highlightjs/cdn-assets@11.3.1/es/core.min.js";
-import highlightJS from "https://unpkg.com/highlight.js@11.3.1/es/languages/javascript";
-import highlightXML from "https://unpkg.com/highlight.js@11.3.1/es/languages/xml";
-import { Html5Entities } from "https://deno.land/x/html_entities@v1.0/mod.js";
+import highlight from "https://unpkg.com/@highlightjs/cdn-assets@11.3.1/es/core.min.js";
+import highlightTS from "https://unpkg.com/highlight.js@11.3.1/es/languages/typescript";
 
-HighlightJS.registerLanguage("js", highlightJS);
-HighlightJS.registerLanguage("html", highlightXML);
+highlight.registerLanguage("typescript", highlightTS);
 
 marked.setOptions({
   gfm: true,
@@ -15,11 +12,8 @@ marked.setOptions({
   sanitize: false,
   smartLists: true,
   smartypants: true,
-  highlight: (code: string, language: string) => {
-    console.log("highlight", code, language);
-
-    return HighlightJS.highlight(code, { language }).value;
-  },
+  highlight: (code: string, language: string) =>
+    highlight.highlight(code, { language }).value,
 });
 
 // Add example classes to Twind
@@ -36,10 +30,38 @@ function transformMarkdown(input: string) {
   // https://github.com/markedjs/marked/blob/master/src/Renderer.js
   marked.use({
     renderer: {
-      code(code: string) {
-        return renderEditor(code);
+      code(code: string, infostring: string): string {
+        const lang = ((infostring || "").match(/\S*/) || [])[0];
+
+        // @ts-ignore How to type this?
+        if (this.options.highlight) {
+          // @ts-ignore How to type this?
+          const out = this.options.highlight(code, lang);
+
+          if (out != null && out !== code) {
+            code = out;
+          }
+        }
+
+        code = code.replace(/\n$/, "") + "\n";
+
+        if (!lang) {
+          return "<pre><code>" +
+            code +
+            "</code></pre>\n";
+        }
+
+        return '<pre class="' +
+          tw`overflow-auto -mx-4 md:mx-0 bg-gray-100 my-4` +
+          '"><code class="' +
+          // @ts-ignore How to type this?
+          this.options.langPrefix +
+          lang +
+          '">' +
+          code +
+          "</code></pre>\n";
       },
-      paragraph(text) {
+      paragraph(text: string) {
         return '<p class="' + tw("my-2") + '">' + text + "</p>";
       },
       heading(
@@ -113,56 +135,6 @@ function transformMarkdown(input: string) {
   });
 
   return { content: marked(input), tableOfContents };
-}
-
-function renderEditor(input: string) {
-  const example = Html5Entities.decode(input);
-
-  return `<section class="${tw("mb-4")}" x-state="{ code: atob('${
-    btoa(
-      example,
-    )
-  }') }">
-<div class="${
-    tw(
-      "p-4 bg-gray-800 text-white rounded-t-lg overflow-x-auto overflow-y-hidden",
-    )
-  }">
-<div class="${tw("relative")}">
-  <div class="${
-    tw(
-      "absolute right-0 text-xs font-thin select-none text-white",
-    )
-  }">Editor</div>
-</div>
-<div class="${tw("inline-block font-mono relative")}">
-  <pre class="${
-    tw(
-      "overflow-hidden mr-16 pr-16 w-full",
-    )
-  }" x="highlight('html', state.code)"></pre>
-  <textarea
-    class="${
-    tw(
-      "overflow-hidden absolute min-w-full min-h-full top-0 left-0 outline-none opacity-50 bg-transparent whitespace-pre resize-none",
-    )
-  }"
-    oninput="setState({ code: this.value })"
-    x="state.code"
-    autocapitalize="off"
-    autocomplete="off"
-    autocorrect="off"
-    spellcheck="false"
-    x-rows="state.code.split('\\n').length"
-  ></textarea>
-</div>
-</div>
-<div class="${
-    tw(
-      "p-4 bg-gray-200 rounded-b-lg",
-    )
-  }" x="state.code">${example}</div>
-</section>`;
 }
 
 export default transformMarkdown;
