@@ -1,0 +1,30 @@
+name: gh-pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup deno
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: v1.16.0
+
+      - name: Build gh-pages
+        run: |
+          deno --version
+          deno install -qAn vr https://deno.land/x/velociraptor@1.3.0/cli.ts
+          vr install:gustwind
+          vr build:site
+
+      - name: Deploy gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
