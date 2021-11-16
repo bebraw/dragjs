@@ -11,15 +11,15 @@ window.onload = function () {
     parent: twodContainer,
     "class": "twod",
     cbs: {
-      change: ({ cursor, pointer }) => {
-        const x = clamp(cursor.x * 100, 0, 100).toFixed(2) + "%";
-        const y = clamp(cursor.y * 100, 0, 100).toFixed(2) + "%";
+      change: ({ x, y, pointer }) => {
+        const newX = clamp(x * 100, 0, 100).toFixed(2) + "%";
+        const newY = clamp(y * 100, 0, 100).toFixed(2) + "%";
 
-        log("x: " + x + ", y: " + y);
+        log("x: " + newX + ", y: " + newY);
 
         if (pointer) {
-          pointer.style.left = x;
-          pointer.style.top = y;
+          pointer.style.left = newX;
+          pointer.style.top = newY;
         }
       },
     },
@@ -31,24 +31,20 @@ window.onload = function () {
     parent: onedContainer,
     "class": "oned",
     cbs: {
-      begin: ({ cursor }) => {
+      begin: () => {
         log("2dslider: begin");
-        console.log(cursor);
       },
-      change: ({ cursor, pointer }) => {
-        console.log(cursor, pointer);
+      change: ({ x, pointer }) => {
+        const newX = clamp(x * 100, 0, 100).toFixed(2) + "%";
 
-        const x = clamp(cursor.x * 100, 0, 100).toFixed(2) + "%";
-
-        log("2dslider: " + x);
+        log("2dslider: " + newX);
 
         if (pointer) {
-          pointer.style.left = x;
+          pointer.style.left = newX;
         }
       },
-      end: ({ cursor }) => {
+      end: () => {
         log("2dslider: end");
-        console.log(cursor);
       },
     },
   });

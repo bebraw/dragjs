@@ -1,9 +1,12 @@
 /// <reference lib="dom" />
 
 type Callback = (
-  { cursor, elem, pointer }: {
+  { x, y, cursor, elem, pointer }: {
+    x: number;
+    y: number;
     cursor: Coordinate;
     elem: HTMLElement;
+    e: MouseEvent | TouchEvent;
     pointer?: HTMLElement;
   },
 ) => void;

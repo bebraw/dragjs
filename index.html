@@ -31,7 +31,11 @@
           parent: $E('onedContainer'),
           'class': 'oned',
           cbs: {
+              begin: function(c) {
+console.log('begin', c)
+              },
               change: function(c) {
+console.log('change', c)
                   var x = clamp(c.x * 100, 0, 100).toFixed(2) + '%';
 
                   log('2dslider: ' + x);
@@ -39,6 +43,7 @@
                   c.pointer.style.left = x;
               },
               end: function(c) {
+console.log('end', c)
                   log('2dslider: done');
               }
           }
