@@ -8,16 +8,17 @@ type Callback = (
   },
 ) => void;
 type Callbacks = {
-  begin: Callback;
-  change: Callback;
-  end: Callback;
+  begin?: Callback;
+  change?: Callback;
+  end?: Callback;
 };
+type Position = "left" | "right";
 
 function draggable(
   { element, handle, xPosition }: {
     element: HTMLElement;
     handle?: HTMLElement;
-    xPosition?: string;
+    xPosition?: Position;
   },
   cbs?: Callbacks,
 ) {
@@ -113,9 +114,9 @@ function dragTemplate(
   up: string,
   cbs?: Callbacks,
   handle?: HTMLElement,
-  xPosition?: string,
+  xPosition?: Position,
 ) {
-  cbs = getCbs(cbs, xPosition = "left");
+  cbs = getCbs(cbs, xPosition);
 
   const beginCb = cbs.begin;
   const changeCb = cbs.change;
@@ -186,7 +187,7 @@ type Coordinate = { x: number; y: number };
 
 function getCbs(
   cbs?: Callbacks,
-  xPosition: "left" | "right" = "left",
+  xPosition: Position = "left",
 ): Callbacks {
   if (cbs) {
     return {

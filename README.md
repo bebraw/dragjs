@@ -1,5 +1,12 @@
 dragjs makes it easy to write deal with dragging in JavaScript making it handy for draggables, sliders, and such.
 
+## Demonstrations
+
+<div id="draggable">Drag me!</div>
+<div id="twodContainer"></div>
+<div id="onedContainer"></div>
+<div id="value"></div>
+
 ## Contributors
 
 * [Jean Carrière](https://github.com/JeanCarriere)

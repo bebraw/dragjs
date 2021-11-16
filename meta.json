@@ -23,10 +23,15 @@
       {
         "rel": "stylesheet",
         "href": "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/dracula.min.css"
+      },
+      {
+        "rel": "stylesheet",
+        "href": "css/demo.css"
       }
     ]
   },
   "paths": {
+    "assets": "./assets",
     "components": "./components",
     "dataSources": "./dataSources",
     "output": "./public",
