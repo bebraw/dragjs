@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build": {
+      "cmd": "deno run -A scripts/buildNpm.ts"
+    },
+    "watch:build": {
+      "cmd": "deno run -A scripts/buildNpm.ts",
+      "watch": true
+    }
+  }
+}

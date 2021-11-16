@@ -8,7 +8,8 @@ await build({
     // package.json properties
     name: "dragjs",
     version: Deno.args[0],
-    description: "Simple utility to make it easier to implement drag based things (ie. sliders and such)",
+    description:
+      "Simple utility to make it easier to implement drag based things (ie. sliders and such)",
     license: "MIT",
     repository: {
       type: "git",
@@ -17,7 +18,7 @@ await build({
     bugs: {
       url: "https://github.com/bebraw/dragjs/issues",
     },
-    keywords: ["drag", "dragging", "draggable"]
+    keywords: ["drag", "dragging", "draggable"],
   },
 });
 

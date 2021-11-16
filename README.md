@@ -9,7 +9,9 @@ dragjs makes it easy to write deal with dragging in JS. Handy for draggables, sl
 
 ## Development
 
-To build, run `deno run -A scripts/buildNpm.ts 0.1.0`. Adjust version accordingly. Then to publish, `cd npm && npm publish`.
+Run the available commands through [velociraptor](https://github.com/umbopepato/velociraptor) (vr).
+
+To build, run `vr build <version?>`. Then to publish, `cd npm && npm publish`.
 
 ## License
 
