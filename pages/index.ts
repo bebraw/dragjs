@@ -3,7 +3,16 @@ import { draggable, slider, xyslider } from "../mod.ts";
 window.onload = function () {
   const draggableElement = document.getElementById("draggable");
 
-  draggableElement && draggable({ element: draggableElement });
+  draggableElement &&
+    draggable({
+      element: draggableElement,
+    }, {
+      change: ({ x, y }) => {
+        log("draggable x:" + x.toFixed(2) + ", y: " + y.toFixed(2));
+
+        return true;
+      },
+    });
 
   const onedContainer = document.getElementById("onedContainer");
 

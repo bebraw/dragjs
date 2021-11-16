@@ -9,7 +9,7 @@ type Callback = (
     e: MouseEvent | TouchEvent;
     pointer?: HTMLElement;
   },
-) => void;
+) => boolean | void;
 type Callbacks = {
   begin?: Callback;
   change?: Callback;
@@ -192,19 +192,11 @@ function getCbs(
   cbs?: Callbacks,
   xPosition: Position = "left",
 ): Callbacks {
-  if (cbs) {
-    return {
-      begin: cbs.begin || noop,
-      change: cbs.change || noop,
-      end: cbs.end || noop,
-    };
-  }
-
   let initialOffset: Coordinate;
   let initialPos: Coordinate;
 
-  return {
-    begin: function (c) {
+  const defaultCbs: Callbacks = {
+    begin: (c) => {
       const bodyWidth = document.body.clientWidth;
 
       initialOffset = {
@@ -217,7 +209,7 @@ function getCbs(
         ? c.cursor
         : { x: bodyWidth - c.cursor.x, y: c.cursor.y };
     },
-    change: function (c) {
+    change: (c) => {
       if (
         typeof initialOffset.x !== "number" || typeof c.cursor.x !== "number" ||
         typeof initialPos.x !== "number"
@@ -250,6 +242,36 @@ function getCbs(
     },
     end: noop,
   };
+
+  if (cbs) {
+    return {
+      begin: cbs.begin
+        ? ((args) => {
+          const ret = cbs.begin && cbs.begin(args);
+
+          if (ret) {
+            // @ts-ignore This is fine
+            return defaultCbs.begin(args);
+          }
+        })
+        : defaultCbs.begin,
+      change: cbs.change
+        ? ((args) => {
+          const ret = cbs.change && cbs.change(args);
+
+          console.log("at change", ret);
+
+          if (ret) {
+            // @ts-ignore This is fine
+            return defaultCbs.change(args);
+          }
+        })
+        : defaultCbs.change,
+      end: cbs.end || defaultCbs.end,
+    };
+  }
+
+  return defaultCbs;
 }
 
 function style(e: HTMLElement, prop: string, value: string) {

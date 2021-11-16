@@ -1,4 +1,17 @@
+#value {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+#draggableParent {
+    position: relative;
+}
+
 #draggable {
+    right: 0;
     position: absolute;
     background-color: #ada;
     border: 1px solid black;

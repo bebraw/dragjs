@@ -6,7 +6,9 @@
 
 ### Simple draggable
 
-<div id="draggable">Drag me!</div>
+<div id="draggableParent">
+  <div id="draggable">Drag me!</div>
+</div>
 
 
 ```typescript
