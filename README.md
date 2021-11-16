@@ -12,7 +12,7 @@ dragjs makes it easy to write deal with dragging in JavaScript making it handy f
 ```typescript
 import { draggable } from "dragjs";
 
-const draggableElement = $E("draggable");
+const draggableElement = document.getElementById("draggable");
 
 draggableElement && draggable({ element: draggableElement });
 ```
@@ -24,7 +24,9 @@ draggableElement && draggable({ element: draggableElement });
 ```typescript
 import { slider } from "dragjs";
 
-slider({
+const onedContainer = document.getElementById("onedContainer");
+
+onedContainer && slider({
   parent: onedContainer,
   "class": "oned",
   cbs: {
@@ -54,7 +56,9 @@ slider({
 ```typescript
 import { xyslider } from "dragjs";
 
-xyslider({
+const twodContainer = document.getElementById("twodContainer");
+
+twodContainer && xyslider({
   parent: twodContainer,
   "class": "twod",
   cbs: {
