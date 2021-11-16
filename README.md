@@ -88,6 +88,8 @@ twodContainer && xyslider({
 
 Run the available commands through [velociraptor](https://github.com/umbopepato/velociraptor) (vr).
 
+To publish, tag a release with the desired version (i.e. `git tag 0.13.0`) and then `git push`.
+
 ## License
 
 **dragjs** is available under MIT. See LICENSE for more details.
