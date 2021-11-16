@@ -1,6 +1,5 @@
 #draggable {
     position: absolute;
-    left: 400px;
     background-color: #ada;
     border: 1px solid black;
     width: 100px;
@@ -10,7 +9,6 @@
 }
 
 #twodContainer {
-    position: fixed;
     top: 50px;
     left: 50px;
     overflow: scroll;
@@ -39,7 +37,6 @@
 }
 
 .oned {
-    float: right;
     background-color: #daa;
     border: 1px solid black;
     width: 300px;
@@ -54,9 +51,4 @@
     margin-left: -2px;
     width: 4px;
     height: 30px;
-}
-
-#value {
-    height: 500px;
-    margin-left: 250px;
 }
