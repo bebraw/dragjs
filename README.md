@@ -88,8 +88,6 @@ twodContainer && xyslider({
 
 Run the available commands through [velociraptor](https://github.com/umbopepato/velociraptor) (vr).
 
-To build, run `vr build <version?>`. Then to publish, `cd npm && npm publish`.
-
 ## License
 
 **dragjs** is available under MIT. See LICENSE for more details.
