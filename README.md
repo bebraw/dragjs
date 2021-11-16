@@ -1,4 +1,4 @@
-dragjs makes it easy to write deal with dragging in JavaScript making it handy for draggables, sliders, and such.
+**dragjs** has been designed to make it easy to create JavaScript based drag interactions. This includes use cases such as draggable panels and different types of sliders. The idea is that you use the logic from this package to build your own components as it captures concerns such as mouse and touch handling.
 
 ## Demonstrations
 
