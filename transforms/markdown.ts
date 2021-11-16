@@ -16,12 +16,6 @@ marked.setOptions({
     highlight.highlight(code, { language }).value,
 });
 
-// Add example classes to Twind
-// TODO: It would be good to capture these directly from examples
-tw(
-  "btn btn-muted hidden bg-red-400 bg-gray-400 ml-2 p-2 flex flex-row justify-between cursor-pointer space-y-2",
-);
-
 function transformMarkdown(input: string) {
   // https://github.com/markedjs/marked/issues/545
   const tableOfContents: { slug: string; level: number; text: string }[] = [];
@@ -52,7 +46,7 @@ function transformMarkdown(input: string) {
         }
 
         return '<pre class="' +
-          tw`overflow-auto -mx-4 md:mx-0 bg-gray-100 my-4` +
+          tw`overflow-auto -mx-4 md:mx-0 p-2 bg-gray-100 my-4` +
           '"><code class="' +
           // @ts-ignore How to type this?
           this.options.langPrefix +
