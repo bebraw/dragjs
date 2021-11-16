@@ -45,7 +45,7 @@ onedContainer &amp;&amp; <span class="hljs-title function_">slider</span>({
     <span class="hljs-attr">change</span>: <span class="hljs-function">(<span class="hljs-params">{ x, pointer }</span>) =&gt;</span> {
       <span class="hljs-keyword">const</span> newX = <span class="hljs-title function_">clamp</span>(x * <span class="hljs-number">100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>).<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">2</span>) + <span class="hljs-string">&quot;%&quot;</span>;
 
-      <span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;2dslider: &quot;</span> + newX);
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;2dslider: &quot;</span> + newX);
 
       <span class="hljs-keyword">if</span> (pointer) {
         pointer.<span class="hljs-property">style</span>.<span class="hljs-property">left</span> = newX;
@@ -72,7 +72,7 @@ twodContainer &amp;&amp; <span class="hljs-title function_">xyslider</span>({
       <span class="hljs-keyword">const</span> newX = <span class="hljs-title function_">clamp</span>(x * <span class="hljs-number">100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>).<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">2</span>) + <span class="hljs-string">&quot;%&quot;</span>;
       <span class="hljs-keyword">const</span> newY = <span class="hljs-title function_">clamp</span>(y * <span class="hljs-number">100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>).<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">2</span>) + <span class="hljs-string">&quot;%&quot;</span>;
 
-      <span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;x: &quot;</span> + newX + <span class="hljs-string">&quot;, y: &quot;</span> + newY);
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;x: &quot;</span> + newX + <span class="hljs-string">&quot;, y: &quot;</span> + newY);
 
       <span class="hljs-keyword">if</span> (pointer) {
         pointer.<span class="hljs-property">style</span>.<span class="hljs-property">left</span> = newX;
