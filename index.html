@@ -22,7 +22,7 @@
 
 <pre class="overflow-auto -mx-4 md:mx-0 bg-gray-100 my-4"><code class="language-typescript"><span class="hljs-keyword">import</span> { draggable } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dragjs&quot;</span>;
 
-<span class="hljs-keyword">const</span> draggableElement = $E(<span class="hljs-string">&quot;draggable&quot;</span>);
+<span class="hljs-keyword">const</span> draggableElement = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;draggable&quot;</span>);
 
 draggableElement &amp;&amp; <span class="hljs-title function_">draggable</span>({ <span class="hljs-attr">element</span>: draggableElement });
 </code></pre>
@@ -31,7 +31,9 @@ draggableElement &amp;&amp; <span class="hljs-title function_">draggable</span>(
 
 <pre class="overflow-auto -mx-4 md:mx-0 bg-gray-100 my-4"><code class="language-typescript"><span class="hljs-keyword">import</span> { slider } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dragjs&quot;</span>;
 
-<span class="hljs-title function_">slider</span>({
+<span class="hljs-keyword">const</span> onedContainer = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;onedContainer&quot;</span>);
+
+onedContainer &amp;&amp; <span class="hljs-title function_">slider</span>({
   <span class="hljs-attr">parent</span>: onedContainer,
   <span class="hljs-string">&quot;class&quot;</span>: <span class="hljs-string">&quot;oned&quot;</span>,
   <span class="hljs-attr">cbs</span>: {
@@ -58,7 +60,9 @@ draggableElement &amp;&amp; <span class="hljs-title function_">draggable</span>(
 
 <pre class="overflow-auto -mx-4 md:mx-0 bg-gray-100 my-4"><code class="language-typescript"><span class="hljs-keyword">import</span> { xyslider } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dragjs&quot;</span>;
 
-<span class="hljs-title function_">xyslider</span>({
+<span class="hljs-keyword">const</span> twodContainer = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;twodContainer&quot;</span>);
+
+twodContainer &amp;&amp; <span class="hljs-title function_">xyslider</span>({
   <span class="hljs-attr">parent</span>: twodContainer,
   <span class="hljs-string">&quot;class&quot;</span>: <span class="hljs-string">&quot;twod&quot;</span>,
   <span class="hljs-attr">cbs</span>: {
