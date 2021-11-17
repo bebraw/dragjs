@@ -163,9 +163,11 @@ function on(
     });
 
     // @ts-ignore Deno doesn't know this
+    // deno-shim-ignore
     globalThis.addEventListener("testPassive", null, opts);
 
     // @ts-ignore Deno doesn't know this
+    // deno-shim-ignore
     globalThis.removeEventListener("testPassive", null, opts);
   } catch (err) {
     console.error(err);
