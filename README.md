@@ -19,6 +19,25 @@ const draggableElement = document.getElementById("draggable");
 draggableElement && draggable({ element: draggableElement });
 ```
 
+### Draggable with a specific handle
+
+<div id="draggableParent">
+  <div id="draggable">
+    <div>Header</div>
+    <div>Body</div>
+  </div>
+</div>
+
+
+```typescript
+import { draggable } from "dragjs";
+
+const element = document.getElementById("draggable");
+const handle = element.children[0];
+
+element && draggable({ element, handle });
+```
+
 ### 1D slider
 
 <div id="onedContainer"></div>
