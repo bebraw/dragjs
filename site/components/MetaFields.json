@@ -1,15 +1,5 @@
 [
   {
-    "type": "base",
-    "attributes": {
-      "href": {
-        "utility": "get",
-        "parameters": ["context", "meta.url"]
-      },
-      "target": "_blank"
-    }
-  },
-  {
     "type": "link",
     "attributes": {
       "rel": "icon",
