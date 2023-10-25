@@ -5,7 +5,7 @@ on:
     branches:
       - master
     tags:
-      - '*'
+      - "*"
 
 jobs:
   build-and-deploy:
@@ -16,14 +16,12 @@ jobs:
       - name: Setup deno
         uses: denolib/setup-deno@v2
         with:
-          deno-version: v1.16.0
+          deno-version: v1.37.2
 
       - name: Build gh-pages
         run: |
           deno --version
-          deno install -qAn vr https://deno.land/x/velociraptor@1.3.0/cli.ts
-          vr install:gustwind
-          vr build:site
+          deno task build
 
       - name: Deploy gh-pages
         uses: peaceiris/actions-gh-pages@v3
@@ -38,8 +36,8 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
 
       - name: npm build
         run: deno run -A ./scripts/buildNpm.ts ${{steps.get_tag_version.outputs.TAG_VERSION}}
