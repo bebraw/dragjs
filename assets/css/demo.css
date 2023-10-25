@@ -21,6 +21,17 @@
     cursor: move;
 }
 
+#draggabletwo {
+    right: 0;
+    position: absolute;
+    background-color: #ada;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    cursor: move;
+}
+
 #twodContainer {
     top: 50px;
     left: 50px;
