@@ -5,7 +5,7 @@
       "title": "dragjs",
       "description": "Simple drag utilities"
     },
-    "scripts": [{ "name": "demo" }],
+    "scripts": [{ "name": "demo", "srcPrefix": "./" }],
     "dataSources": [
       {
         "operation": "processMarkdown",
