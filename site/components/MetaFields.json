@@ -20,7 +20,7 @@
     "type": "link",
     "attributes": {
       "rel": "stylesheet",
-      "href": "/assets/css/demo.css"
+      "href": "./assets/css/demo.css"
     }
   },
   {
