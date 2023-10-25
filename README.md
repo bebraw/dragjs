@@ -22,7 +22,7 @@ draggableElement && draggable({ element: draggableElement });
 ### Draggable with a specific handle
 
 <div id="draggableParent">
-  <div id="draggable">
+  <div id="draggabletwo">
     <div>Header</div>
     <div>Body</div>
   </div>
@@ -32,7 +32,7 @@ draggableElement && draggable({ element: draggableElement });
 ```typescript
 import { draggable } from "dragjs";
 
-const element = document.getElementById("draggable");
+const element = document.getElementById("draggabletwo");
 const handle = element.children[0];
 
 element && draggable({ element, handle });
