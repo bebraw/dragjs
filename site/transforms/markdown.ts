@@ -1,8 +1,17 @@
 import { marked } from "https://unpkg.com/marked@4.0.0/lib/marked.esm.js";
-import { tw } from "https://cdn.skypack.dev/twind@0.16.16?min";
+import { install, tw } from "https://esm.sh/@twind/core@1.1.1"; // 1.1.3 doesn't work!
 import highlight from "https://unpkg.com/@highlightjs/cdn-assets@11.3.1/es/core.min.js";
+import highlightJS from "https://unpkg.com/highlight.js@11.3.1/es/languages/javascript";
 import highlightTS from "https://unpkg.com/highlight.js@11.3.1/es/languages/typescript";
+import highlightXML from "https://unpkg.com/highlight.js@11.3.1/es/languages/xml";
+import twindSetup from '../twindSetup.ts'
 
+install(twindSetup);
+
+highlight.registerLanguage("js", highlightJS);
+highlight.registerLanguage("javascript", highlightJS);
+highlight.registerLanguage("html", highlightXML);
+highlight.registerLanguage("ts", highlightTS);
 highlight.registerLanguage("typescript", highlightTS);
 
 marked.setOptions({

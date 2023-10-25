@@ -1,0 +1,17 @@
+{
+  "/": {
+    "layout": "siteIndex",
+    "meta": {
+      "title": "dragjs",
+      "description": "Simple drag utilities"
+    },
+    "scripts": [{ "name": "demo" }],
+    "dataSources": [
+      {
+        "operation": "processMarkdown",
+        "parameters": ["./README.md"],
+        "name": "readme"
+      }
+    ]
+  }
+}

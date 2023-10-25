@@ -105,7 +105,7 @@ twodContainer && xyslider({
 
 ## Development
 
-Run the available commands through [velociraptor](https://github.com/umbopepato/velociraptor) (vr).
+Run the available commands through `deno task`.
 
 To publish, tag a release with the desired version (i.e. `git tag 0.13.0`) and then `git push`.
 

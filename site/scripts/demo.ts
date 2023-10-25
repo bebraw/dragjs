@@ -1,4 +1,4 @@
-import { draggable, slider, xyslider } from "../mod.ts";
+import { draggable, slider, xyslider } from "../../mod.ts";
 
 window.onload = function () {
   const draggableElement = document.getElementById("draggable");
