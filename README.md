@@ -35,7 +35,7 @@ import { draggable } from "dragjs";
 const element = document.getElementById("draggabletwo");
 const handle = element.children[0];
 
-element && draggable({ element, handle });
+element && handle && draggable({ element, handle });
 ```
 
 ### 1D slider

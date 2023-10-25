@@ -14,6 +14,11 @@ window.onload = function () {
       },
     });
 
+  const draggableTwoElement = document.getElementById("draggabletwo");
+  const handle = draggableTwoElement?.children[0] as HTMLElement;
+
+  draggableTwoElement && handle && draggable({ element: draggableTwoElement, handle });
+
   const onedContainer = document.getElementById("onedContainer");
 
   onedContainer && slider({
