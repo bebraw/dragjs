@@ -7,6 +7,23 @@ function init({ routes }: { routes: Routes }) {
     return (await md(input)).content;
   }
 
+  function trim(_: Context, str: string, char: string) {
+    if (!str) {
+      throw new Error("No string to trim!");
+    }
+
+    // Exception for /
+    if (str === char) {
+      return str;
+    }
+
+    // Adapted from https://www.sitepoint.com/trimming-strings-in-javascript/
+    return str.replace(new RegExp("^[" + char + "]+"), "").replace(
+      new RegExp("[" + char + "]+$"),
+      "",
+    );
+  }
+
   function validateUrl(_: Context, url: string) {
     if (!url) {
       return;
@@ -26,7 +43,7 @@ function init({ routes }: { routes: Routes }) {
     throw new Error(`Failed to find matching url for "${url}"`);
   }
 
-  return { processMarkdown, validateUrl };
+  return { processMarkdown, trim, validateUrl };
 }
 
 export { init };
