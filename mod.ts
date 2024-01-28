@@ -261,8 +261,6 @@ function getCbs(
         ? ((args) => {
           const ret = cbs.change && cbs.change(args);
 
-          console.log("at change", ret);
-
           if (ret) {
             // @ts-ignore This is fine
             return defaultCbs.change(args);
