@@ -63,7 +63,7 @@ function xyslider(o: { parent: HTMLElement; class: string; cbs: Callbacks }) {
 
   return {
     background: twod,
-    pointer: pointer,
+    pointer,
   };
 }
 
@@ -242,7 +242,7 @@ function getCbs(
         (initialOffset.y + c.cursor.y - initialPos.y) + "px",
       );
     },
-    end: noop,
+    end: () => {},
   };
 
   if (cbs) {
@@ -279,8 +279,6 @@ function style(e: HTMLElement, prop: string, value: string) {
   e.style[prop] = value;
 }
 
-function noop() {}
-
 function callCb(
   cb: (
     { x, y, cursor, elem, e }: {
@@ -296,7 +294,8 @@ function callCb(
 ) {
   e.preventDefault();
 
-  const offset = findPos(elem);
+  // http://www.quirksmode.org/js/findpos.html
+  const offset = elem.getBoundingClientRect();
   const width = elem.clientWidth;
   const height = elem.clientHeight;
   const cursor = {
@@ -308,8 +307,8 @@ function callCb(
     return;
   }
 
-  const x = (cursor.x - offset.x) / width;
-  const y = (cursor.y - offset.y) / height;
+  const x = (cursor.x - offset.left) / width;
+  const y = (cursor.y - offset.top) / height;
 
   cb({
     x: isNaN(x) ? 0 : x,
@@ -318,16 +317,6 @@ function callCb(
     elem,
     e,
   });
-}
-
-// http://www.quirksmode.org/js/findpos.html
-function findPos(e: HTMLElement) {
-  const r = e.getBoundingClientRect();
-
-  return {
-    x: r.left,
-    y: r.top,
-  };
 }
 
 // http://javascript.about.com/library/blmousepos.htm
